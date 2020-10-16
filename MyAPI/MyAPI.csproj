@@ -5,6 +5,25 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include=".api\CoursesController.cs" />
+    <Compile Include=".api\InstitutionsController.cs" />
+    <Compile Include=".api\StudentsController.cs" />
+    <Compile Include=".api\TeachersController.cs" />
+    <Compile Include=".api\WeatherForecastController.cs" />
+    <Compile Include=".bll\services\migrations\20201016110140_secondCreate.cs" />
+    <Compile Include=".bll\services\migrations\20201016110140_secondCreate.Designer.cs" />
+    <Compile Include=".dal\Entities\Institution.cs" />
+    <Compile Include=".dal\Entities\UniversityContext.cs" />
+    <Compile Include=".bll\services\Migrations\20201013195802_InitialCreate.cs" />
+    <Compile Include=".bll\services\Migrations\20201013195802_InitialCreate.Designer.cs" />
+    <Compile Include=".bll\services\Migrations\UniversityContextModelSnapshot.cs" />
+    <Compile Include=".dal\Data\DummyData.cs" />
+    <Compile Include=".dal\Entities\Course.cs" />
+    <Compile Include=".dal\Entities\Student.cs" />
+    <Compile Include=".dal\Entities\Teacher.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
@@ -16,6 +35,11 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Utils" Version="3.1.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
     <PackageReference Include="Swashbuckle.Core" Version="5.6.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include=".api\Controller\" />
+    <Folder Include=".bll\dtos\" />
   </ItemGroup>
 
 

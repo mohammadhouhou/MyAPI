@@ -2,15 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using MyAPI.Data;
 
-namespace MyAPI.Data.Migrations
+namespace MyAPI.bll.services.migrations
 {
     [DbContext(typeof(UniversityContext))]
-    partial class UniversityContextModelSnapshot : ModelSnapshot
+    [Migration("20201016110140_secondCreate")]
+    partial class secondCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,13 +32,18 @@ namespace MyAPI.Data.Migrations
 
             modelBuilder.Entity("MyAPI.Models.Student", b =>
                 {
+                    b.Property<int>("id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
                     b.Property<string>("Firstname")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Lastname")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Firstname");
+                    b.HasKey("id");
 
                     b.ToTable("Students");
                 });
@@ -54,6 +61,19 @@ namespace MyAPI.Data.Migrations
                     b.HasKey("TeacherID");
 
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("MyAPI.dal.Entities.Institution", b =>
+                {
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("id")
+                        .HasColumnType("int");
+
+                    b.HasKey("name");
+
+                    b.ToTable("institutions");
                 });
 #pragma warning restore 612, 618
         }

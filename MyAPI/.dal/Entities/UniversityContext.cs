@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MyAPI.dal.Entities;
 using MyAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace MyAPI.Data
         {
             base.OnModelCreating(builder);
         }
+
+        public DbSet<Institution> institutions { get; set; }
         public DbSet<Course> Courses { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }

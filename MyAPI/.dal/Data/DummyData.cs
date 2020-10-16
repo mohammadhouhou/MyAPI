@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using MyAPI.dal.Entities;
 using MyAPI.Models;
 using System;
 using System.Collections.Generic;
@@ -18,10 +19,11 @@ namespace MyAPI.Data
                 context.Database.EnsureCreated();
                 //context.Database.Migrate();
 
-                // Look for any ailments
+               
                 if (context.Courses != null && context.Courses.Any())
                     return;   // DB has already been seeded
 
+                
                 var courses = GetCourses().ToArray();
                 context.Courses.AddRange(courses);
                 context.SaveChanges();
@@ -32,6 +34,10 @@ namespace MyAPI.Data
 
                 var teachers = GetTeachers().ToArray();
                 context.Teachers.AddRange(teachers);
+                context.SaveChanges();
+
+                var institutions = GetInstitutions().ToArray();
+                context.institutions.AddRange(institutions);
                 context.SaveChanges();
             }
         }
@@ -63,6 +69,16 @@ namespace MyAPI.Data
 
             };
             return teachers;
+        }
+        public static List<Institution> GetInstitutions()
+        {
+            List<Institution> institutions = new List<Institution>()
+            {
+                new Institution {id=1,name="ige" },
+                new Institution {id=2, name="inci"}
+
+            };
+            return institutions;
         }
     }
 }

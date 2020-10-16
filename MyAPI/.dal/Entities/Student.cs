@@ -9,6 +9,8 @@ namespace MyAPI.Models
     public class Student
     {
         [Key]
+
+        public int id { get; set; }
         public string Firstname { get; set;}
         public string Lastname { get; set; }
     }
